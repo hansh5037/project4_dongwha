@@ -1,0 +1,398 @@
+@charset 'utf-8';
+/* 1. 웹폰트 또는 외부 CSS 연결 */
+@import url('https://webfontworld.github.io/sunn/SUIT.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Material+Icons+Outlined');
+
+/* 2. 초기화 */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; 
+}
+html {
+    font-size: 10px;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+*:before, *:after {
+    box-sizing: border-box;
+}
+html {}
+body {
+    font-family: 'SUIT', 'Malgun Gothic', sans-serif;
+    font-size: 1.6rem;
+    color: #333;
+    line-height: 1.6;
+}
+body.hidden {
+    overflow: hidden;
+}
+h1, h2, h3, h4, h5, h6 { 
+    font-family: 'SUIT', 'Malgun Gothic', sans-serif;
+} 
+input, select, textarea {
+    font-family: 'SUIT', 'Malgun Gothic', sans-serif;
+    font-size: 1.6rem;
+    color: #333;
+}
+button {
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+}
+label {
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+ol, ul {
+    list-style-type: none;
+}
+img {
+    border: 0;
+    vertical-align: top;
+}
+p {
+    margin: 1em 0;
+}
+table {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    border-top: 1px solid #ddd;
+}
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+th {
+    border-bottom-color: #ddd;
+    background-color: #f8f8f8;
+}
+
+/* 3. 공용클래스 */
+.wrap {
+    width: 100%;
+    max-width: 1560px;
+    margin: auto;
+    padding: 0 5%;
+}
+.sound-only {
+    position: absolute;
+    left: -9999em;
+    top: -9999em;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.table {
+    display: table;
+    width: 100%;
+}
+.tc {
+    display: table-cell;
+    vertical-align: middle;
+}
+.center {
+    text-align: center;
+}
+
+button.view-more {
+    position: relative;
+    font-size: 1.3rem;
+    color: #b42228;
+    margin: 4rem;
+    padding-right: 1.7rem;
+}
+.view-more:after, .view-more:before {
+    position: absolute;
+    right: 0;
+    top: 0.6rem;
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 2px;
+    background-color: #b42228;
+}
+.view-more:after {
+    transform: rotate(90deg);
+}
+.max650 {
+    width: 100%;
+    max-width: 65rem;
+}
+
+/* 4. 자주 사용하는 글자색과 배경 */
+.wh, .wh:hover, .wh a, .wh a:hover {
+    color: #fff !important;
+}
+.bk, .bk:hover, .bk a, .bk a:hover {
+    color: #000 !important;
+}
+.gr, .gr:hover, .gr a, .gr a:hover {
+    color: #999 !important;
+}
+.re, .re:hover, .re a, .re a:hover {
+    color: #b42228 !important;
+}
+
+/* 5. 공통영역별 설계 */
+
+/* 스킵영역 */
+#skip {}
+#skip a {
+    position: fixed;
+    left: 0;
+    top: -5rem;
+    display: block;
+    width: 100%;
+    background-color: #F55521;
+    text-align: center;
+    line-height: 4.8rem;
+    color: #fff;
+    z-index: 9999;
+    transition: top 0.2s;
+}
+#skip a:focus {
+    top: 0;
+}
+
+/* header 고정 */
+#header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7rem;
+    background-color: #fff;
+    box-shadow: 0 0.1rem 0.3rem rgba(0,0,0,0.1);
+}
+#header.fixed .dw-gnb .depth1 > a {
+    line-height: 7rem;
+}
+#header.fixed .main-search span {
+    color: #ccc;
+}
+#header.fixed .dw-gnb a {
+    color: #000;
+}
+#header.fixed .toggle-line {
+    background-color: #ccc;
+}
+#header.fixed .dw-logo {
+    top: 0.5rem;
+    width: 6rem;
+}
+/* 헤더영역 */
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    z-index: 100;
+}
+#dw-gnb {}
+.dw-logo {
+    position: absolute;
+    top: 0.5rem;
+    left: 1.5rem;
+    width: 5rem;
+}
+.dw-logo a {
+    display: block;
+    width: 100%;
+    padding-top: 92.9824%;
+    background: url('../images/dh_logo.png') center center/contain no-repeat;
+}
+.main-search {
+    position: absolute;
+    right: 5.5rem;
+    top: 50%;
+    width: 3.2rem;
+    height: 3.2rem;
+    transform: translateY(-50%);
+}
+.main-search span {
+    color: #fff;
+    font-size: 3.2rem;
+}
+#header input {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 14rem;
+    border-width: 0 0 0.1rem 0;
+    background-color: transparent;
+    transform: translateY(-50%);
+}
+.gnb-toggle-btn {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    background-color: transparent;
+    transform: translateY(-50%);
+    z-index: 101;
+}
+.toggle-line {
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 0.4rem;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 0.2rem;
+    text-indent: -9999em;
+    transition: top 0.3s 0.5s, transform 0.3s 0.2s;
+}
+.line1 {top: 20%;}
+.line2 {top: calc(50% - 0.1rem); transition: opacity 0.3s 0.6s;}
+.line3 {top: calc(80% - 0.2rem);}
+.gnb-toggle-btn.close .toggle-line {
+    top: calc(50% - 0.1rem);
+    transition: top 0.3s 0.2s, transform 0.3s 0.5s;
+}
+.gnb-toggle-btn.close .line1 {transform: rotate(45deg);}
+.gnb-toggle-btn.close .line2 {opacity: 0; transition: opacity 0.5s;}
+.gnb-toggle-btn.close .line3 {transform: rotate(-45deg);}
+.dw-gnb {
+    display: none;
+}
+
+.dw-gnb .depth1 > a {
+    line-height: 9rem;
+    padding: 0 6rem;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+.dw-gnb .depth1 {
+    display: inline-block;
+    vertical-align: top;
+}
+.dw-gnb .depth2 {
+    background-color: #fff;
+    box-shadow: 0 0.1rem 0.3rem rgba(0,0,0,0.1);
+}
+.dw-gnb .depth2 a {
+    color: #333;
+}
+.depth2 {
+    position: relative;
+    top: -3px;
+    padding: 0 0 2em 1em;
+    display: none;
+    text-align: left;
+}
+.depth2 a {
+    line-height: 3.2rem;
+}
+.dw-gnb .depth1:hover > a:after {
+    position: relative;
+    top: -3px;
+    content: '';
+    display: block;
+    border-bottom: 3px solid #ec1f27;
+}
+.dw-gnb .depth2 a:hover {
+    color: #ec1f27;
+    font-weight: 500;
+}
+
+.m-dw-gnb.open {
+    right: 0;
+}
+.m-dw-gnb {
+    position: fixed;
+    right: -90%;
+    top: 0;
+    width: 90%;
+    height: 100%;
+    padding: 9rem 0 0 2rem;
+    background-color: #b42228;
+    transition: 0.5s;
+}
+.m-dw-gnb a, .dw-gnb a {
+    display: block;
+    color: #fff;
+}
+.m-dw-gnb.open {
+    right: 0;
+}
+.m-dw-gnb .depth1 > a:after {
+    position: absolute;
+    right: 2rem;
+    bottom: 2.6rem;
+    content: '';
+    width: 0.9rem;
+    height: 0.9rem;
+    border: 2px solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.m-dw-gnb .depth1 > a {
+    position: relative;
+    line-height: 6rem;
+    font-size: 2rem;
+}
+
+
+/* footer */
+#footer {
+    padding-bottom: 7rem;
+    text-align: center;
+    font-weight: 500;
+}
+.service-center dt {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+.service-center dd {
+    font-size: 1.5rem;
+}
+.service-center .service-num {
+    padding-bottom: 2rem;
+    font-size: 2.4rem;
+    color: #b42228;
+    font-weight: 800;
+}
+.footer-logo {
+    padding: 2rem 0;
+}
+.ft-terms {
+    padding-bottom: 2rem;
+}
+.ft-terms li {
+    display: inline-block;
+    font-weight: 700;
+}
+.ft-terms li:first-child {
+    color: #b42228;
+}
+.ft-info {}
+.ft-info li {
+    padding: 0.2rem;
+    color: #000;
+}
+.ft-info li dl {}
+.ft-info li dt:after {
+    content: ':';
+    display: inline-block;
+}
+
+.ft-info li dd, .ft-info li dt, .ib-list {
+    display: inline-block;
+}
+.copyright {
+    font-size: 1.4rem;
+}
